@@ -35,8 +35,8 @@ function addNumbers(num1, num2) {
  * the returned value should look like: 'Goodbye, Andy. Have a great day.'
  * 
 */
-function sayGoodbye(/* code here */) {
-  /* code here */
+function sayGoodbye(name) {
+  return `Goodbye, ${name}. Have a great day.`;
 }
 
 /**
@@ -53,8 +53,10 @@ function sayGoodbye(/* code here */) {
  * Hint 1: The formula for converting celsius to fahrenheit is t*9/5 + 32 where t is the temperature in celsius.
  * Hint 2: There is a very easy way to round numbers in JS. Do a google search to find out how. 
 */
-function temperatureCtoF(/* code here */) {
-  /* code here */
+function temperatureCtoF(tempC) {
+  let temp1 = (tempC * (9/5)) + 32;
+  let tempF = Math.round(temp1);
+  return tempF;
 }
 
 /**
@@ -74,8 +76,13 @@ function temperatureCtoF(/* code here */) {
  * 
  * Hint: You can call your `temperatureCtoF` function from inside `temperatureInF`.
 */
-function temperatureInF(/* code here */) {
-  /* code here */
+function temperatureInF(temp, ForC) {
+  if (ForC == 'C') {
+    return `${temperatureCtoF(temp)}F`;
+    }
+    else {
+      return `${temp}F`;
+    }
 }
 
 
@@ -95,8 +102,8 @@ function temperatureInF(/* code here */) {
  *   email: "leia@leia.com",
  * }
 */
-function makePersonObject(/* code here */) {
-  /* code here */
+function makePersonObject(id, name, email) {
+  return {id, name, email};
 }
 
 /**
@@ -112,8 +119,8 @@ function makePersonObject(/* code here */) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(/* code here */) {
-  /* code here */
+function getName(someObject) {
+  return `Hello, my name is ${someObject.name}`;
 }
 
 
@@ -132,8 +139,12 @@ function getName(/* code here */) {
  * passing in [ 'orange', 'grape', 'apple', 'banana', 'mango' ] as the argument,
  * the returned value should be: 2.
 */
-function appleIndex(/* code here */) {
-  /* code here */
+function appleIndex(stringArray) {
+  for (i=0; i < stringArray.length; i++) {
+    if (stringArray[i] === 'apple') {
+      return i;
+    }
+  }
 }
 
 /**
@@ -151,8 +162,16 @@ function appleIndex(/* code here */) {
  * passing in [ 'orange', 'apple', 'banana', 'apples', 'apple', 'mango' ] as the argument,
  * the returned value should be: [ false, true, false, false, true, false ].
 */
-function isItAnApple(/* code here */) {
-  /* code here */
+function isItAnApple(strarray) {
+  let newArray = [];
+  for (i = 0; i < strarray.length; i++) {
+    if (strarray[i] === 'apple'){
+      newArray.push(true)
+    }else {
+      newArray.push(false);
+    }
+  }
+  return newArray;
 }
 
 
@@ -209,8 +228,9 @@ function get3rdCar(inventory) {
  * For example, if getCarInfoByIndex is invoked with the inventory and the number 0,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoByIndex(inventory, index) {
-  /* code here */
+function getCarInfoByIndex(inv, index) {
+  let newThing = inv[index];
+  return `This is a ${newThing.car_make} ${newThing.car_model}`;
 }
 
 /**
@@ -224,8 +244,10 @@ function getCarInfoByIndex(inventory, index) {
  * For example, if getLastCarInfo is invoked passing the inventory inside /data/inventory.js,
  * it will return `This is a Lincoln Town Car`.
 */
-function getLastCarInfo(/* code here */) {
-  /* code here */
+function getLastCarInfo(someArray) {
+  let glci = (someArray.length -1 );
+  let carinv = someArray[glci];
+  return `This is a ${carinv.car_make} ${carinv.car_model}.`;
 }
 
 /**
@@ -237,8 +259,12 @@ function getLastCarInfo(/* code here */) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
-function getModelYears(/* code here */) {
-  /* code here */
+function getModelYears(someArray) {
+  let otherArray = [];
+  for (i=0; i < someArray.length; i++) {
+    otherArray.push(someArray[i].car_year);
+  }
+  return otherArray;
 }
 
 /**
@@ -255,8 +281,8 @@ function getModelYears(/* code here */) {
  * For example, if getCarInfoById is invoked with the inventory and the number 1,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoById(/* code here */) {
-  /* code here */
+function getCarInfoById(array, num) {
+  
 }
 
 /**
